@@ -1,24 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { useState, useEffect } from "react";
+import myArray from "./masterArr.js";
+import { getCards } from "./getCards.js";
+import { checkPair } from "./checkHand.js";
 
 function App() {
+  let dealtCards;
+  const [cards, setCards] = useState([]);
+
+  useEffect(() => {
+    //dealtCards = getCards();
+    //setCards(getCards());
+  }, []);
+
+  let cards1 = getCards();
+
+  let hasPair;
+
+  console.log(cards1);
+
+  hasPair = checkPair(cards1);
+
+  console.log(hasPair);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="mainContain">
+        <div className="dealerCards">
+          <div className="dealerCard1">dealer 1</div>
+          <div className="dealerCard1">dealer 2</div>
+          <div className="dealerCard1">dealer 3</div>
+          <div className="dealerCard1">dealer 4</div>
+          <div className="dealerCard1">dealer 5</div>
+        </div>
+        <div className="playerCards">
+          <div className="playerCard">myCard 1</div>
+          <div className="playerCard">myCard 2</div>
+        </div>
+      </div>
+    </>
   );
 }
 
