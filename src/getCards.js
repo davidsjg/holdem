@@ -6,13 +6,13 @@ export function getCards() {
   let cards = [];
 
   let testCards = [
-    { 'suit':'heart', 'number':8 },
-    { 'suit':'diamond', 'number':2 },
-    { 'suit':'club', 'number':4 },
-    { 'suit':'spade', 'number':8 },
+    { 'suit':'heart', 'number':1 },
     { 'suit':'club', 'number':3 },
-    { 'suit':'heart', 'number':2 },
-    { 'suit':'club', 'number':2 },
+    { 'suit':'spade', 'number':4 },
+    { 'suit':'club', 'number':5 },
+    { 'suit':'diamond', 'number':6 },
+    { 'suit':'heart', 'number':7 },
+    { 'suit':'club', 'number':10 },
   ]
 
   for (let i = 0; i < 7; i++) {

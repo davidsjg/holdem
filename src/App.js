@@ -3,7 +3,7 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import myArray from "./masterArr.js";
 import { getCards } from "./getCards.js";
-import { checkPair } from "./checkHand.js";
+import { checkPair, checkStraightFlush } from "./checkHand.js";
 
 function App() {
   let dealtCards;
@@ -20,9 +20,11 @@ function App() {
 
   console.log(cards1);
 
-  hasPair = checkPair(cards1);
+  //hasPair = checkPair(cards1);
 
-  console.log(hasPair);
+  let sortCards = checkStraightFlush(cards1);
+
+  console.log(sortCards);
 
   return (
     <>
