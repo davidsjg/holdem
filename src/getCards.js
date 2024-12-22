@@ -10,9 +10,9 @@ export function getCards() {
     { 'suit':'diamond', 'number':2 },
     { 'suit':'club', 'number':4 },
     { 'suit':'spade', 'number':8 },
-    { 'suit':'club', 'number':8 },
+    { 'suit':'club', 'number':3 },
     { 'suit':'heart', 'number':2 },
-    { 'suit':'diamond', 'number':6 },
+    { 'suit':'club', 'number':2 },
   ]
 
   for (let i = 0; i < 7; i++) {

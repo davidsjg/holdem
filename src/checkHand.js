@@ -15,25 +15,33 @@ export function checkPair(dealtCards) {
   dealtCards.forEach((card1) => {
     for (let j = 0; j < compareCards.length; j++) {
       let card2 = compareCards[j];
-      if (card1.number === card2.number && card1.suit !== card2.suit) {
-        if (
-          matchedCards1.length > 0 &&
-          matchedCards1[0].number !== card1.number
-        ) {
-          console.log("inside two pair");
 
-          matchedCards2.push(card1);
-          continue;
-        }
-        if (!matchedCards1.includes(card2)) {
-          matchedCards1.push(card2);
+      if (card1.number === card2.number && card1.suit !== card2.suit) {
+        if (matchedCards1.length === 0) {
+          console.log(card1)
+          matchedCards1.push(card1);
+        } else if (matchedCards1[0].number !== card1.number) {
+          console.log(card1)
+          if(!matchedCards2.includes(card1)){
+            matchedCards2.push(card1);
+          }
+        } else if (
+
+          matchedCards1.length > 0 &&
+          !matchedCards2.includes(card1.number)
+        ) {
+          matchedCards1.push(card1);
+          console.log(card1)
         }
       }
-    }
 
-    pair = matchedCards1.length;
-    pair2 = matchedCards2.length;
+      pair = matchedCards1.length;
+      pair2 = matchedCards2.length;
+      console.log(pair);
+      console.log(pair2);
+    }
   });
+
   if (pair === 2 || pair2 === 2) {
     pairObject.pair = true;
   }
@@ -44,11 +52,9 @@ export function checkPair(dealtCards) {
     pairObject.fourOfAKind = true;
   }
 
-  if (pairObject.pair && matchedCards2.length === 1) {
+  if (pair === 2 && pair2 === 2) {
     pairObject.twoPair = true;
-  } else if (pairObject.pair && matchedCards2.length === 2) {
-    pairObject.fullHouse = true;
-  } else if (pairObject.threeOfAKind && matchedCards2.length === 1) {
+  } else if ((pair === 2 && pair2 === 3) || (pair === 3 && pair2 === 2)) {
     pairObject.fullHouse = true;
   }
 
