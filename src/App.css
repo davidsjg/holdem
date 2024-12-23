@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 60px;
+
   /* width: 100vw; */
 }
 
@@ -71,7 +71,7 @@
 
 .playerCardsParent{
   display: flex;
-  height: 300px; 
+  height: 100px; 
 }
 
 .communal{
@@ -87,4 +87,22 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+
+.buttonContain{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.button1{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 90px;
+  height: 100px;
+  width: 100px;
+
+
 }

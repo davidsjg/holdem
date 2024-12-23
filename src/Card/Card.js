@@ -1,9 +1,8 @@
 import "./Card.css";
+import { convertCards } from "../convertCards";
 function Card(props) {
-  console.log(props.value);
-  let number1 = props.value.number
+  let number1 = convertCards(props.value.number);
   let suit1 = props.value.suit
-
   let suit5= '';
 
   switch (suit1) {
