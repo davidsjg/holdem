@@ -1,0 +1,18 @@
+.card1{
+    box-shadow: rgb(0 0 0 / 6%) 0px 26px 30px -10px,
+    rgb(0 0 0 / 73%) 0px 16px 10px -10px;
+    display: flex;
+    flex-direction: column;
+    border-style: double;
+    align-items: center;
+    justify-content: center;
+    border-width: 2px;
+    padding: 10px;
+    width: 20px;
+    margin: 20px;
+}
+
+.cardContain{
+    display: flex;
+    flex-direction: row;
+}

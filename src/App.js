@@ -6,7 +6,7 @@ import { checkPair, checkStraightFlush } from "./checkHand.js";
 import { convertCards } from "./convertCards.js";
 import { calculateScore } from "./calculateScore.js";
 import { calculateWinner } from "./calculateWinner.js";
-import Card from './Card/Card.js'
+import Card from './PlayerCards/PlayerCards.js'
 
 function App() {
   let dealtCards;
@@ -59,7 +59,7 @@ function App() {
   return (
     <>
     <div>
-      <Card />
+      <Card value={player1Cards} />
     </div>
     </>
   )
