@@ -20,23 +20,13 @@ function App() {
   const [communal, setCommunal] = useState([]);
   const [winner, setWinner] = useState({});
   const [refresh1, setRefresh1] = useState();
-
-  useEffect(() => {
-    //dealtCards = getCards();
-    //setCards(getCards());
-  }, [refresh1]);
-
-  //console.log(cards);
-
-  //
+  const [flop, setFlop] = useState();
 
   function playCards() {
-    console.log(countClick);
-
     setCountClick(countClick + 1);
-    if (countClick  % 2 === 0) {
+    if (countClick === 0) {
       let { cards2, scores, winner } = deal();
-      console.log(cards2)
+      console.log(cards2);
       setCards(cards2);
       setPlayer1Cards(cards2.splice(0, 2));
       setPlayer2Cards(cards2.splice(0, 2));
@@ -44,21 +34,23 @@ function App() {
       setPlayer4Cards(cards2.splice(0, 2));
       setCommunal(cards2.slice());
 
-      console.log(scores);
-
       setWinner(winner);
-
-
+      setFlop("flop1");
+    } else if (countClick === 1){
+      setFlop("flop2");
     }
-    if (countClick  % 2 === 1){
-      setCards([])
+
+/*
+    if (countClick === 3) {
+      setCards([]);
       setPlayer1Cards([]);
       setPlayer2Cards([]);
       setPlayer3Cards([]);
       setPlayer4Cards([]);
       setWinner({});
-      window.location.reload(true); 
+      window.location.reload(true);
     }
+      */
   }
 
   return (
@@ -76,14 +68,34 @@ function App() {
             <div className="computerHand1">
               <PlayerCards value={player2Cards[0]} />
               <PlayerCards value={player2Cards[1]} />
-              {winner.winPlayer === "player2" && <>winner  {winner.hand}</>}
+              {winner.winPlayer === "player2" && <>winner {winner.hand}</>}
             </div>
             <div className="communal">
-              <PlayerCards value={communal[0]} />
-              <PlayerCards value={communal[1]} />
-              <PlayerCards value={communal[2]} />
-              <PlayerCards value={communal[3]} />
-              <PlayerCards value={communal[4]} />
+              <div className="flopBoarder">
+                <div className={flop}>
+                  <PlayerCards value={communal[0]} />
+                </div>
+              </div>
+              <div className="flopBoarder">
+                <div className={flop}>
+                  <PlayerCards value={communal[1]} />
+                </div>
+              </div>
+              <div className="flopBoarder">
+                <div className={flop}>
+                  <PlayerCards value={communal[2]} />
+                </div>
+              </div>
+              <div className="flopBoarder">
+                <div className={flop}>
+                  <PlayerCards value={communal[3]} />
+                </div>
+              </div>
+              <div className="flopBoarder">
+                <div className={flop}>
+                  <PlayerCards value={communal[4]} />
+                </div>
+              </div>
             </div>
             <div className="computerHand1">
               <PlayerCards value={player4Cards[0]} />
@@ -106,10 +118,10 @@ function App() {
         </>
       ) : (
         <div className="buttonContain">
-        <button className="button1" onClick={playCards}>
-          Play Hand
-        </button>
-      </div>
+          <button className="button1" onClick={playCards}>
+            Play Hand
+          </button>
+        </div>
       )}
     </>
   );

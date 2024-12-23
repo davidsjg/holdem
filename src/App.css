@@ -87,6 +87,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+
 }
 
 .buttonContain{
@@ -105,4 +106,18 @@
   width: 100px;
 
 
+}
+
+.flop1{
+  content-visibility: hidden;
+}
+.flop2{
+  content-visibility: visible;
+}
+.flopBoarder{
+  box-shadow: rgb(0 0 0 / 12%) 0px 26px 30px -10px,
+  rgb(0 0 0 / 73%) 0px 16px 10px -10px;
+  border-style: dotted ;
+  width: 100px;
+  height: 100px;
 }

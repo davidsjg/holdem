@@ -1,4 +1,17 @@
-export function convertCards(cardNumber) {
+export function convertCards(cardNumber, suit) {
+
+   let cardObj = {
+      cardNumber : 0,
+      moji: ''
+   }
+
+   if(cardNumber === 2 && suit === 'heart'){
+      cardObj = {
+         'cardNumber': 2,
+         moji: '🂲'
+
+      }
+   }
 
 
 
@@ -18,5 +31,5 @@ export function convertCards(cardNumber) {
       default:
          cardNumber = cardNumber;
   }
-  return cardNumber;
+  return {cardNumber, cardObj};
 }

@@ -36,7 +36,17 @@ export function calculateWinner(play1, play2, play3, play4) {
 
   scores.sort((a, b) => b - a);
 
-  //console.log(scores);
+  console.log(scores);
+
+  if(scores[0] === 1 && scores[1]===1){
+    let pairArr = []
+    scores.forEach((score)=>{
+      if(score === 1){
+        pairArr.push(score);
+      }
+    })
+    
+  }
 
 
   let playerScoreMap = new Map([
