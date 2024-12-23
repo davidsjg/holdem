@@ -62,3 +62,29 @@
   padding: 10px;
   margin: 20px;
 }
+
+.playerCards{
+  width: fit-content;  
+  height: fit-content; 
+  margin: auto;  
+}
+
+.playerCardsParent{
+  display: flex;
+  height: 300px; 
+}
+
+.communal{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.centerContain{
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
