@@ -13,8 +13,8 @@ export function checkPair(dealtCards) {
   let matchedCards2 = [];
   let compareCards = dealtCards.slice();
   dealtCards.forEach((card1) => {
-    for (let j = 0; j < compareCards.length; j++) {
-      let card2 = compareCards[j];
+    for (let k = 0; k < compareCards.length; k++) {
+      let card2 = compareCards[k];
 
       if (card1.number === card2.number && card1.suit !== card2.suit) {
         if (matchedCards1.length === 0) {
@@ -79,23 +79,14 @@ export function checkStraightFlush(dealtCards) {
   // Sort the array in ascending order
   sortCards.sort((a, b) => a - b);
 
-
-
   for (let i = 1; i < 4; i++) {
     if (sortCards[i] === sortCards[i - 1] + 1) {
-
-
       // sortCards[2]=3          sortCards[1] +1  = 3
       if (sortCards[i + 1] === sortCards[i] + 1) {
-
-
         //  sortCards[3]=4       sortCards[2]=3 +1 = 4
         if (sortCards[i + 2] === sortCards[i + 1] + 1) {
-
-
           //  sortCards[4]=5        sortCards[3]=4 + 1
           if (sortCards[i + 3] === sortCards[i + 2] + 1) {
-
             strFlushObj.straight = true;
             break;
           }
@@ -105,7 +96,6 @@ export function checkStraightFlush(dealtCards) {
   }
 
   suitCards.sort((a, b) => a - b);
-
 
   let clubs = 0;
   let hearts = 0;
@@ -129,14 +119,14 @@ export function checkStraightFlush(dealtCards) {
       default:
       // code block
     }
-    if(spades===5 || hearts===5 || diamonds===5 || clubs===5){
+    if (spades === 5 || hearts === 5 || diamonds === 5 || clubs === 5) {
       strFlushObj.flush = true;
     }
   }
 
-  if(strFlushObj.flush === true && strFlushObj.straight === true){
+  if (strFlushObj.flush === true && strFlushObj.straight === true) {
     strFlushObj.straightFlush = true;
-    if(sortCards[0]===10 || sortCards[1]===10 || sortCards[2] === 10){
+    if (sortCards[0] === 10 || sortCards[1] === 10 || sortCards[2] === 10) {
       strFlushObj.royalFlush = true;
     }
   }

@@ -21,7 +21,7 @@ export function getCards() {
     { suit: "diamond", number: 11 },
   ];
 
-  for (let i = 0; i < 28; i++) {
+  for (let i = 0; i < 13; i++) {
     let rand = Math.floor(Math.random() * (51 - i)) + 1;
     let pulled = cardArr[rand];
     randNumbs.push(pulled);

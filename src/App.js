@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { useState, useEffect } from "react";
 import myArray from "./masterArr.js";
@@ -6,6 +5,8 @@ import { getCards } from "./getCards.js";
 import { checkPair, checkStraightFlush } from "./checkHand.js";
 import { convertCards } from "./convertCards.js";
 import { calculateScore } from "./calculateScore.js";
+import { calculateWinner } from "./calculateWinner.js";
+import Card from './Card/Card.js'
 
 function App() {
   let dealtCards;
@@ -16,7 +17,53 @@ function App() {
     //setCards(getCards());
   }, []);
 
-  let cards1 = getCards();
+  let cards = getCards();
+
+  console.log(cards);
+
+  let player1Cards = cards.splice(0,2)
+  let player2Cards = cards.splice(0,2)
+  let player3Cards = cards.splice(0,2)
+  let player4Cards = cards.splice(0,2)
+  let communal = cards.slice();
+
+  console.log(player1Cards)
+
+  let player1Hand = player1Cards.concat(communal);
+  let player2Hand = player2Cards.concat(communal);
+  let player3Hand = player3Cards.concat(communal);
+  let player4Hand = player4Cards.concat(communal);
+
+  console.log(player1Hand)
+
+  let pairObject1 = checkPair(player1Hand);
+  console.log(pairObject1)
+
+  let pairObject2 = checkPair(player2Hand);
+  let pairObject3 = checkPair(player3Hand);
+  let pairObject4 = checkPair(player4Hand);
+
+  let strFlushObj1 = checkStraightFlush(player1Hand);
+  let strFlushObj2 = checkStraightFlush(player2Hand);
+  let strFlushObj3 = checkStraightFlush(player3Hand);
+  let strFlushObj4 = checkStraightFlush(player4Hand);
+ 
+  let playerScore1 = calculateScore(pairObject1, strFlushObj1);
+  let playerScore2 = calculateScore(pairObject2, strFlushObj2);
+  let playerScore3 = calculateScore(pairObject3, strFlushObj3);
+  let playerScore4 = calculateScore(pairObject4, strFlushObj4);
+
+  let winner = calculateWinner(playerScore1, playerScore2, playerScore3, playerScore4)
+
+  console.log(winner);
+  return (
+    <>
+    <div>
+      <Card />
+    </div>
+    </>
+  )
+
 
   //let cards = cards[0];
 
@@ -26,6 +73,7 @@ function App() {
 
   //console.log(cards1);
 
+  /*
   let pairObject = checkPair(cards1);
 
   let strFlushObj = checkStraightFlush(cards1);
@@ -78,12 +126,12 @@ function App() {
         </div>
         <div className="playerCards">
         <div className="playerCard">
-            <div>{playerCard1.suit}</div>
-            <div>{playerCard1Number}</div>
+            <div>{player1Cards[0].suit}</div>
+            <div>{player1Cards[0].number}</div>
           </div>
         <div className="playerCard">
-            <div>{playerCard2.suit}</div>
-            <div>{playerCard2Number}</div>
+            <div>{player1Cards[1].suit}</div>
+            <div>{player1Cards[1].number}</div>
           </div>
         </div>
         <div className="score">
@@ -92,6 +140,7 @@ function App() {
       </div>
     </>
   );
+    */
 }
 
 export default App;

@@ -4,8 +4,7 @@ export function calculateScore(pairObject, strFlushObject) {
 
   let calcHand = "";
 
-  console.log(pairObj);
-  console.log(strFlushObj);
+
 
   if (strFlushObj.royalFlush) {
     calcHand = "Royal Flush";
