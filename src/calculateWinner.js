@@ -4,6 +4,13 @@ export function calculateWinner(play1, play2, play3, play4) {
   let player3 = play3;
   let player4 = play4;
 
+  let initialMap = new Map([
+    ['player1', player1],
+    ['player2', player2],
+    ['player3', player3],
+    ['player4', player4]
+  ])
+
   let scoreMap = new Map([
     ["Royal Flush", 9],
     ["Straight Flush", 8],
@@ -39,7 +46,10 @@ export function calculateWinner(play1, play2, play3, play4) {
     [player4Score, 'player4'],
   ])
 
-  let winner = playerScoreMap.get(scores[0])
+  let winner = {
+    winPlayer: playerScoreMap.get(scores[0]),
+    hand: initialMap.get(playerScoreMap.get(scores[0]))
+  }
 
  // console.log(winner);
 

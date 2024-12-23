@@ -3,102 +3,114 @@ import { useState, useEffect } from "react";
 import myArray from "./masterArr.js";
 import { getCards } from "./getCards.js";
 import { checkPair, checkStraightFlush } from "./checkHand.js";
-import { convertCards } from "./convertCards.js";
 import { calculateScore } from "./calculateScore.js";
+import { deal } from "./deal.js";
 import { calculateWinner } from "./calculateWinner.js";
+
 import PlayerCards from "./Card/Card.js";
 
 function App() {
   let dealtCards;
   const [countClick, setCountClick] = useState(0);
+  const [cards, setCards] = useState([]);
+  const [player1Cards, setPlayer1Cards] = useState([]);
+  const [player2Cards, setPlayer2Cards] = useState([]);
+  const [player3Cards, setPlayer3Cards] = useState([]);
+  const [player4Cards, setPlayer4Cards] = useState([]);
+  const [communal, setCommunal] = useState([]);
+  const [winner, setWinner] = useState({});
+  const [refresh1, setRefresh1] = useState();
 
   useEffect(() => {
     //dealtCards = getCards();
     //setCards(getCards());
-  }, []);
-
-  let cards = getCards();
+  }, [refresh1]);
 
   //console.log(cards);
 
-  let player1Cards = cards.splice(0, 2);
-  let player2Cards = cards.splice(0, 2);
-  let player3Cards = cards.splice(0, 2);
-  let player4Cards = cards.splice(0, 2);
-  let communal = cards.slice();
+  //
 
-  let player1Hand = player1Cards.concat(communal);
-  let player2Hand = player2Cards.concat(communal);
-  let player3Hand = player3Cards.concat(communal);
-  let player4Hand = player4Cards.concat(communal);
+  function playCards() {
+    console.log(countClick);
 
-  let pairObject1 = checkPair(player1Hand);
-  let pairObject2 = checkPair(player2Hand);
-  let pairObject3 = checkPair(player3Hand);
-  let pairObject4 = checkPair(player4Hand);
+    setCountClick(countClick + 1);
+    if (countClick  % 2 === 0) {
+      let { cards2, scores, winner } = deal();
+      console.log(cards2)
+      setCards(cards2);
+      setPlayer1Cards(cards2.splice(0, 2));
+      setPlayer2Cards(cards2.splice(0, 2));
+      setPlayer3Cards(cards2.splice(0, 2));
+      setPlayer4Cards(cards2.splice(0, 2));
+      setCommunal(cards2.slice());
 
-  let strFlushObj1 = checkStraightFlush(player1Hand);
-  let strFlushObj2 = checkStraightFlush(player2Hand);
-  let strFlushObj3 = checkStraightFlush(player3Hand);
-  let strFlushObj4 = checkStraightFlush(player4Hand);
+      console.log(scores);
 
-  let playerScore1 = calculateScore(pairObject1, strFlushObj1);
-  let playerScore2 = calculateScore(pairObject2, strFlushObj2);
-  let playerScore3 = calculateScore(pairObject3, strFlushObj3);
-  let playerScore4 = calculateScore(pairObject4, strFlushObj4);
+      setWinner(winner);
 
-  let winner = calculateWinner(
-    playerScore1,
-    playerScore2,
-    playerScore3,
-    playerScore4
-  );
 
-  function playCards(){
-    console.log(countClick)
-    setCountClick(1)
+    }
+    if (countClick  % 2 === 1){
+      setCards([])
+      setPlayer1Cards([]);
+      setPlayer2Cards([]);
+      setPlayer3Cards([]);
+      setPlayer4Cards([]);
+      setWinner({});
+      window.location.reload(true); 
+    }
   }
 
   return (
     <>
-
-        <div className="playerCardsParent">
-          <div className="playerCards">
-            <PlayerCards value={player3Cards[0]} />
-            <PlayerCards value={player3Cards[1]} />
-            {winner === "player3" && <>winner</>}
+      {cards.length > 0 ? (
+        <>
+          <div className="playerCardsParent">
+            <div className="playerCards">
+              <PlayerCards value={player3Cards[0]} />
+              <PlayerCards value={player3Cards[1]} />
+              {winner.winPlayer === "player3" && <>winner {winner.hand}</>}
+            </div>
           </div>
-        </div>
-        <div className="centerContain">
-          <div className="computerHand1">
-            <PlayerCards value={player2Cards[0]} />
-            <PlayerCards value={player2Cards[1]} />
-            {winner === "player2" && <>winner</>}
+          <div className="centerContain">
+            <div className="computerHand1">
+              <PlayerCards value={player2Cards[0]} />
+              <PlayerCards value={player2Cards[1]} />
+              {winner.winPlayer === "player2" && <>winner  {winner.hand}</>}
+            </div>
+            <div className="communal">
+              <PlayerCards value={communal[0]} />
+              <PlayerCards value={communal[1]} />
+              <PlayerCards value={communal[2]} />
+              <PlayerCards value={communal[3]} />
+              <PlayerCards value={communal[4]} />
+            </div>
+            <div className="computerHand1">
+              <PlayerCards value={player4Cards[0]} />
+              <PlayerCards value={player4Cards[1]} />
+              {winner.winPlayer === "player4" && <>winner {winner.hand}</>}
+            </div>
           </div>
-          <div className="communal">
-            <PlayerCards value={communal[0]} />
-            <PlayerCards value={communal[1]} />
-            <PlayerCards value={communal[2]} />
-            <PlayerCards value={communal[3]} />
-            <PlayerCards value={communal[4]} />
+          <div className="playerCardsParent">
+            <div className="playerCards">
+              <PlayerCards value={player1Cards[0]} />
+              <PlayerCards value={player1Cards[1]} />
+              {winner.winPlayer === "player1" && <>winner {winner.hand}</>}
+            </div>
           </div>
-          <div className="computerHand1">
-            <PlayerCards value={player4Cards[0]} />
-            <PlayerCards value={player4Cards[1]} />
-            {winner === "player4" && <>winner</>}
+          <div className="buttonContain">
+            <button className="button1" onClick={playCards}>
+              Play Hand
+            </button>
           </div>
-        </div>
-        <div className="playerCardsParent">
-          <div className="playerCards">
-            <PlayerCards value={player1Cards[0]} />
-            <PlayerCards value={player1Cards[1]} />
-            {winner === "player1" && <>winner</>}
-          </div>
-        </div>
+        </>
+      ) : (
         <div className="buttonContain">
-          <button className="button1" onClick={playCards}>Play Hand</button>
-        </div>
-
+        <button className="button1" onClick={playCards}>
+          Play Hand
+        </button>
+      </div>
+      )}
     </>
   );
 }
