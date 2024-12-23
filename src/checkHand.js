@@ -27,7 +27,9 @@ export function checkPair(dealtCards) {
           matchedCards1.length > 0 &&
           !matchedCards2.includes(card1.number)
         ) {
-          matchedCards1.push(card1);
+          if (!matchedCards1.includes(card1)) {
+            matchedCards1.push(card1);
+          }
         }
       }
 
@@ -35,8 +37,7 @@ export function checkPair(dealtCards) {
       pair2 = matchedCards2.length;
     }
   });
-  console.log(pair);
-  console.log(pair2);
+
   if (pair === 2 || pair2 === 2) {
     pairObject.pair = true;
   }
@@ -78,23 +79,23 @@ export function checkStraightFlush(dealtCards) {
   // Sort the array in ascending order
   sortCards.sort((a, b) => a - b);
 
-  console.log(sortCards);
+
 
   for (let i = 1; i < 4; i++) {
     if (sortCards[i] === sortCards[i - 1] + 1) {
-      console.log("inside 1");
+
 
       // sortCards[2]=3          sortCards[1] +1  = 3
       if (sortCards[i + 1] === sortCards[i] + 1) {
-        console.log("inside 2");
+
 
         //  sortCards[3]=4       sortCards[2]=3 +1 = 4
         if (sortCards[i + 2] === sortCards[i + 1] + 1) {
-          console.log("inside 3");
+
 
           //  sortCards[4]=5        sortCards[3]=4 + 1
           if (sortCards[i + 3] === sortCards[i + 2] + 1) {
-            console.log("inside 4");
+
             strFlushObj.straight = true;
             break;
           }
@@ -105,7 +106,7 @@ export function checkStraightFlush(dealtCards) {
 
   suitCards.sort((a, b) => a - b);
 
-  console.log(suitCards);
+
   let clubs = 0;
   let hearts = 0;
   let spades = 0;

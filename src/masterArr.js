@@ -56,4 +56,6 @@ const myArray = [
     { suit: 'diamond', number: 14},
   ];
 
+  
+
   export default myArray;
