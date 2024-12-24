@@ -19,7 +19,7 @@ export function getCards() {
     { suit: "diamond", number: 6 },
   ];
 
-  for (let i = 0; i < 8; i++) {
+  for (let i = 0; i < 13; i++) {
     let rand = Math.floor(Math.random() * (51 - i)) + 1;
     let pulled = cardArr[rand];
     randNumbs.push(pulled);
@@ -40,5 +40,5 @@ export function getCards() {
 
 
 
-  return testFinal;
+  return cards;
 }

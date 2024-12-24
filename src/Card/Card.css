@@ -8,8 +8,10 @@
     justify-content: center;
     border-width: 2px;
     padding: 10px;
-    width: 50px;
+    width: 40px;
     margin: 20px;
+    background-color: aliceblue;
+    border-radius: 2px;
 }
 
 .cardContain{
