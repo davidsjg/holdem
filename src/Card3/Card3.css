@@ -1,0 +1,30 @@
+.card1{
+    box-shadow: rgb(0 0 0 / 6%) 0px 26px 30px -10px,
+    rgb(0 0 0 / 73%) 0px 16px 10px -10px;
+    display: flex;
+    flex-direction: column;
+    border-style: double;
+    align-items: center;
+    justify-content: center;
+    border-width: 2px;
+    padding: 10px;
+    width: 40px;
+    margin: 20px;
+    background-color: aliceblue;
+    border-radius: 2px;
+}
+
+.cardContain5{
+    display: flex;
+    flex-direction: row;
+    height: 110px;
+}
+
+.diamond{
+    background-color: red;
+}
+
+.heart{
+    background-color: red;
+}
+

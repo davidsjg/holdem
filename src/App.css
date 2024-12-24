@@ -124,6 +124,27 @@
 
 }
 
+.computerHand3{
+  width: fit-content;  
+  height: fit-content; 
+  margin: auto;  
+  display: flex;
+  flex-direction: row;
+}
+
+.computerHand3Parent{
+  display: flex;
+  height: 100px; 
+  padding-top: 150px;
+}
+
+.computerHandClass1{
+  content-visibility: hidden;
+}
+.computerHandClass2{
+  content-visibility: visible;
+}
+
 .flop1{
   content-visibility: hidden;
 }
@@ -131,9 +152,11 @@
   content-visibility: visible;
 }
 .flopBoarder{
-  box-shadow: rgb(0 0 0 / 12%) 0px 26px 30px -10px,
-  rgb(0 0 0 / 73%) 0px 16px 10px -10px;
-  border-style: dotted ;
+  box-shadow: white 0px 26px 30px -10px,
+white 0px 16px 10px -10px;
+  border-style: dotted;
+  border-color: whitesmoke;
+  border-width: 1px;
   width: 100px;
   height: 100px;
 }
@@ -154,4 +177,5 @@
 }
 .winner2{
   content-visibility: visible;
+  color: white
 }
