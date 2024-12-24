@@ -19,14 +19,19 @@ function App() {
   const [player4Cards, setPlayer4Cards] = useState([]);
   const [communal, setCommunal] = useState([]);
   const [winner, setWinner] = useState({});
+  const [winnerContain, setWinnerContain] = useState();
   const [refresh1, setRefresh1] = useState();
   const [flop, setFlop] = useState();
+  const [turn, setTurn] = useState();
+  const [river, setRiver] = useState();
+  const [compCardsContainer, setCompCardsContainer] = useState();
+  const [buttonDisplay, setButtonDisplay] = useState();
 
   function playCards() {
+    let buttonArr = ['Click to Play', 'Show Flop', 'Show Turn', 'Show River', 'Play Again']
     setCountClick(countClick + 1);
     if (countClick === 0) {
       let { cards2, scores, winner } = deal();
-      console.log(cards2);
       setCards(cards2);
       setPlayer1Cards(cards2.splice(0, 2));
       setPlayer2Cards(cards2.splice(0, 2));
@@ -35,14 +40,21 @@ function App() {
       setCommunal(cards2.slice());
 
       setWinner(winner);
+      setWinnerContain('winner1')
       setFlop("flop1");
+      setTurn('turn1');
+      setRiver('river1');
     } else if (countClick === 1){
       setFlop("flop2");
-
+    } else if(countClick === 2){
+      setTurn('turn2');
+    } else if(countClick === 3){
+      setRiver('river2');
+      setWinnerContain('winner2')
     }
 
 
-    if (countClick === 2) {
+    if (countClick === 4) {
       setCards([]);
       setPlayer1Cards([]);
       setPlayer2Cards([]);
@@ -63,7 +75,7 @@ function App() {
             <div className="playerCards">
               <PlayerCards value={player3Cards[0]} />
               <PlayerCards value={player3Cards[1]} />
-              <div className={flop}>
+              <div className={winnerContain}>
               {winner.winPlayer === "player3" && <>winner {winner.hand}</>}
               </div>
             </div>
@@ -72,7 +84,7 @@ function App() {
             <div className="computerHand1">
               <PlayerCards value={player2Cards[0]} />
               <PlayerCards value={player2Cards[1]} />
-              <div className={flop}>
+              <div className={winnerContain}>
               {winner.winPlayer === "player2" && <>winner {winner.hand}</>}
               </div>
             </div>
@@ -93,12 +105,12 @@ function App() {
                 </div>
               </div>
               <div className="flopBoarder">
-                <div className={flop}>
+                <div className={turn}>
                   <PlayerCards value={communal[3]} />
                 </div>
               </div>
               <div className="flopBoarder">
-                <div className={flop}>
+                <div className={river}>
                   <PlayerCards value={communal[4]} />
                 </div>
               </div>
@@ -106,7 +118,7 @@ function App() {
             <div className="computerHand1">
               <PlayerCards value={player4Cards[0]} />
               <PlayerCards value={player4Cards[1]} />
-              <div className={flop}>
+              <div className={winnerContain}>
               {winner.winPlayer === "player4" && <>winner {winner.hand}</>}
               </div>
             </div>
@@ -115,7 +127,7 @@ function App() {
             <div className="playerCards">
               <PlayerCards value={player1Cards[0]} />
               <PlayerCards value={player1Cards[1]} />
-              <div className={flop}>
+              <div className={winnerContain}>
               {winner.winPlayer === "player1" && <>winner {winner.hand}</>}
               </div>
             </div>

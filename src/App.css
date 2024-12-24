@@ -121,7 +121,21 @@
   width: 100px;
   height: 100px;
 }
-
-.winnerContain{
-  
+.turn1{
+  content-visibility: hidden;
+}
+.turn2{
+  content-visibility: visible;
+}
+.river1{
+  content-visibility: hidden;
+}
+.river2{
+  content-visibility: visible;
+}
+.winner1{
+  content-visibility: hidden;
+}
+.winner2{
+  content-visibility: visible;
 }
