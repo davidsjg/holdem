@@ -1,3 +1,4 @@
+//CHECK HAND
 export function checkPair(dealtCards) {
   let pairObject = {
     pair: false,
@@ -6,47 +7,69 @@ export function checkPair(dealtCards) {
     fullHouse: false,
     fourOfAKind: false,
     pair1Number: 0,
-    pair2Number: 0
+    pair2Number: 0,
   };
   let pair = 0;
   let pair2 = 0;
   let twoPair = false;
+  let bestPairPre = []
+  let bestPair = []
   let matchedCards1 = [];
   let matchedCards2 = [];
+  let matchedCards3 = [];
   let compareCards = dealtCards.slice();
   dealtCards.forEach((card1) => {
     for (let k = 0; k < compareCards.length; k++) {
       let card2 = compareCards[k];
 
       if (card1.number === card2.number && card1.suit !== card2.suit) {
-        if (matchedCards1.length === 0) {
-          matchedCards1.push(card1);
-          pairObject.pair1Number = card1.number;
-        } else if (matchedCards1[0].number === card1.number) {
-
-    
-          if (!matchedCards1.includes(card1)) {
-            matchedCards1.push(card1);
-            pairObject.pair2Number = card1.number;
-          }
-   
-        } else if (matchedCards2.length === 0 ) {
-         // if (!matchedCards2.includes(card1)) {
-            matchedCards2.push(card1);
-            pairObject.pair2Number = card2.number;
-         // }
-        } else if(matchedCards2.length > 0 && matchedCards2[0].number === card1.number){
-          matchedCards2.push(card1);
+        if (!bestPairPre.includes(card1)) {
+          bestPairPre.push(card1);
+          //setPlayer1Cards(cards2.splice(0, 2));
         }
       }
 
-      pair = matchedCards1.length;
-      pair2 = matchedCards2.length;
+      
+      if (card1.number === card2.number && card1.suit !== card2.suit) {
+        if (matchedCards1.length === 0) {
+          matchedCards1.push(card1);
+        } else if (matchedCards1[0].number === card1.number) {
+          if (!matchedCards1.includes(card1)) {
+            matchedCards1.push(card1);
+          }
+        } else if (matchedCards2.length === 0) {
+           if (!matchedCards2.includes(card1)) {
+          matchedCards2.push(card1);
+           }
+        } else if (matchedCards2.length > 0 && matchedCards2[0].number === card1.number) {
+          if (!matchedCards2.includes(card1)) {
+            matchedCards2.push(card1);
+             }
+        } else {
+          if (!matchedCards3.includes(card1)) {
+            matchedCards3.push(card1);
+             }
+        }
+      }
+      
+      bestPairPre = matchedCards1.concat(matchedCards2, matchedCards3)
+//matchedCards2.splice(0, 2);
+      pair = matchedCards1.length
+      pair2 = matchedCards2.length
+
+      bestPairPre.sort((a, b) => a - b);
+
+
     }
   });
 
-  console.log(pair)
-  console.log(pair2)
+  bestPair = bestPairPre.slice(0,4)
+  console.log(bestPair);
+
+  console.log(pair);
+  console.log(pair2);
+
+
 
   if (pair === 2 || pair2 === 2) {
     pairObject.pair = true;
@@ -72,7 +95,7 @@ export function checkPair(dealtCards) {
 //straight flush
 //royal flush
 export function checkStraightFlush(dealtCards) {
-  let strArr = []
+  let strArr = [];
   let strFlushObj = {
     straight: false,
     flush: false,
@@ -92,17 +115,17 @@ export function checkStraightFlush(dealtCards) {
 
   for (let i = 1; i < 4; i++) {
     if (sortCards[i] === sortCards[i - 1] + 1) {
-      strArr.push(suitCards[i-1])
-      strArr.push(suitCards[i])
+      strArr.push(suitCards[i - 1]);
+      strArr.push(suitCards[i]);
       // sortCards[2]=3          sortCards[1] +1  = 3
       if (sortCards[i + 1] === sortCards[i] + 1) {
-        strArr.push(suitCards[i+1])
+        strArr.push(suitCards[i + 1]);
         //  sortCards[3]=4       sortCards[2]=3 +1 = 4
         if (sortCards[i + 2] === sortCards[i + 1] + 1) {
-          strArr.push(suitCards[i+2])
+          strArr.push(suitCards[i + 2]);
           //  sortCards[4]=5        sortCards[3]=4 + 1
           if (sortCards[i + 3] === sortCards[i + 2] + 1) {
-            strArr.push(suitCards[i+3])
+            strArr.push(suitCards[i + 3]);
             strFlushObj.straight = true;
             break;
           }
@@ -141,7 +164,6 @@ export function checkStraightFlush(dealtCards) {
   }
 
   if (strFlushObj.flush === true && strFlushObj.straight === true) {
-
     for (let i = 1; i < 4; i++) {
       if (strArr[i] === strArr[i - 1]) {
         if (strArr[i + 1] === strArr[i]) {
@@ -154,7 +176,6 @@ export function checkStraightFlush(dealtCards) {
         }
       }
     }
-
 
     if (sortCards[0] === 10 || sortCards[1] === 10 || sortCards[2] === 10) {
       strFlushObj.royalFlush = true;

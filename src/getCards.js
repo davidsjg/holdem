@@ -12,16 +12,14 @@ export function getCards() {
   let cards = [];
 
   let testCards = [
-    { suit: "heart", number: 4 },
-    { suit: "heart", number: 3 },
     { suit: "spade", number: 2 },
-    { suit: "club", number: 5 },
-    { suit: "heart", number: 12 },
-    { suit: "spade", number: 6 },
-    { suit: "diamond", number: 11 },
+    { suit: "club", number: 2 },
+    { suit: "heart", number: 11 },
+    { suit: "spade", number: 12 },
+    { suit: "diamond", number: 6 },
   ];
 
-  for (let i = 0; i < 13; i++) {
+  for (let i = 0; i < 8; i++) {
     let rand = Math.floor(Math.random() * (51 - i)) + 1;
     let pulled = cardArr[rand];
     randNumbs.push(pulled);
@@ -36,5 +34,11 @@ export function getCards() {
     cards.push(card);
   });
 
-  return cards;
+
+
+  let testFinal = cards.concat(testCards)
+
+
+
+  return testFinal;
 }

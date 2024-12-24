@@ -8,6 +8,7 @@ import { deal } from "./deal.js";
 import { calculateWinner } from "./calculateWinner.js";
 
 import PlayerCards from "./Card/Card.js";
+import Card2 from "./Card2/Card2.js";
 
 function App() {
   let dealtCards;
@@ -25,11 +26,20 @@ function App() {
   const [turn, setTurn] = useState();
   const [river, setRiver] = useState();
   const [compCardsContainer, setCompCardsContainer] = useState();
-  const [buttonDisplay, setButtonDisplay] = useState();
+  const [buttonDisplay, setButtonDisplay] = useState('Click to Play');
+  let testVal = {
+    suit: 'clubs',
+    number: 2
+  }
+  let buttonArr = ['Show Flop', 'Show Turn', 'Show River', 'Play Again']
+
 
   function playCards() {
-    let buttonArr = ['Click to Play', 'Show Flop', 'Show Turn', 'Show River', 'Play Again']
     setCountClick(countClick + 1);
+
+    setButtonDisplay(buttonArr[0])
+
+
     if (countClick === 0) {
       let { cards2, scores, winner } = deal();
       setCards(cards2);
@@ -45,10 +55,13 @@ function App() {
       setTurn('turn1');
       setRiver('river1');
     } else if (countClick === 1){
+      setButtonDisplay(buttonArr[1])
       setFlop("flop2");
     } else if(countClick === 2){
       setTurn('turn2');
+      setButtonDisplay(buttonArr[2])
     } else if(countClick === 3){
+      setButtonDisplay(buttonArr[3])
       setRiver('river2');
       setWinnerContain('winner2')
     }
@@ -64,6 +77,7 @@ function App() {
       window.location.reload(true);
       setCountClick(0);
     }
+
       
   }
 
@@ -134,14 +148,16 @@ function App() {
           </div>
           <div className="buttonContain">
             <button className="button1" onClick={playCards}>
-              Play Hand
+
+              {buttonDisplay}
             </button>
           </div>
         </>
       ) : (
         <div className="buttonContain">
           <button className="button1" onClick={playCards}>
-            Play Hand
+
+            {buttonDisplay}
           </button>
         </div>
       )}

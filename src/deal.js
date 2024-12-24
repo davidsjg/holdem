@@ -20,19 +20,25 @@ export function deal() {
     royalFlush: false,
   }
 
+  //get all the cards to be dealt to players
   let cards = getCards();
-  console.log(cards);
+
+  //deal 2 cards to each player 
   let player1Cards = cards.splice(0, 2);
   let player2Cards = cards.splice(0, 2);
   let player3Cards = cards.splice(0, 2);
   let player4Cards = cards.splice(0, 2);
+
+  //deal remaining 5 cards to communal
   let communal = cards.slice();
 
+  //set unrealized hand (all 7 cards)
   let player1Hand = player1Cards.concat(communal);
   let player2Hand = player2Cards.concat(communal);
   let player3Hand = player3Cards.concat(communal);
   let player4Hand = player4Cards.concat(communal);
 
+  //send unrealized hand to check pair
   let pairObject1 = checkPair(player1Hand);
   let pairObject2 = checkPair(player2Hand);
   let pairObject3 = checkPair(player3Hand);
@@ -68,7 +74,6 @@ export function deal() {
     playerScore4
   );
 
-  console.log(scores);
 
   return { cards2, scores, winner };
 }
