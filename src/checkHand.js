@@ -30,13 +30,13 @@ export function checkPair(dealtCards) {
             pairObject.pair2Number = card1.number;
           }
    
-        } else if (
-          matchedCards1.length > 0 &&
-          !matchedCards2.includes(card1.number)
-        ) {
+        } else if (matchedCards2.length === 0 ) {
          // if (!matchedCards2.includes(card1)) {
             matchedCards2.push(card1);
+            pairObject.pair2Number = card2.number;
          // }
+        } else if(matchedCards2.length > 0 && matchedCards2[0].number === card1.number){
+          matchedCards2.push(card1);
         }
       }
 

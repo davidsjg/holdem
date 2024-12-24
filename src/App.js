@@ -38,10 +38,11 @@ function App() {
       setFlop("flop1");
     } else if (countClick === 1){
       setFlop("flop2");
+
     }
 
-/*
-    if (countClick === 3) {
+
+    if (countClick === 2) {
       setCards([]);
       setPlayer1Cards([]);
       setPlayer2Cards([]);
@@ -49,8 +50,9 @@ function App() {
       setPlayer4Cards([]);
       setWinner({});
       window.location.reload(true);
+      setCountClick(0);
     }
-      */
+      
   }
 
   return (
@@ -61,14 +63,18 @@ function App() {
             <div className="playerCards">
               <PlayerCards value={player3Cards[0]} />
               <PlayerCards value={player3Cards[1]} />
+              <div className={flop}>
               {winner.winPlayer === "player3" && <>winner {winner.hand}</>}
+              </div>
             </div>
           </div>
           <div className="centerContain">
             <div className="computerHand1">
               <PlayerCards value={player2Cards[0]} />
               <PlayerCards value={player2Cards[1]} />
+              <div className={flop}>
               {winner.winPlayer === "player2" && <>winner {winner.hand}</>}
+              </div>
             </div>
             <div className="communal">
               <div className="flopBoarder">
@@ -100,14 +106,18 @@ function App() {
             <div className="computerHand1">
               <PlayerCards value={player4Cards[0]} />
               <PlayerCards value={player4Cards[1]} />
+              <div className={flop}>
               {winner.winPlayer === "player4" && <>winner {winner.hand}</>}
+              </div>
             </div>
           </div>
           <div className="playerCardsParent">
             <div className="playerCards">
               <PlayerCards value={player1Cards[0]} />
               <PlayerCards value={player1Cards[1]} />
+              <div className={flop}>
               {winner.winPlayer === "player1" && <>winner {winner.hand}</>}
+              </div>
             </div>
           </div>
           <div className="buttonContain">
