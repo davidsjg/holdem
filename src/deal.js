@@ -49,6 +49,11 @@ export function deal() {
   let strFlushObj3 = checkStraightFlush(player3Hand);
   let strFlushObj4 = checkStraightFlush(player4Hand);
 
+  console.log(pairObject1, strFlushObj1)
+  console.log(pairObject2, strFlushObj2)
+  console.log(pairObject3, strFlushObj3)
+  console.log(pairObject4, strFlushObj4)
+
   let playerScore1 = calculateScore(pairObject1, strFlushObj1);
   let playerScore2 = calculateScore(pairObject2, strFlushObj2);
   let playerScore3 = calculateScore(pairObject3, strFlushObj3);
