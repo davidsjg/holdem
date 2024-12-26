@@ -59,6 +59,8 @@ export function deal() {
   let playerScore3 = calculateScore(pairObject3, strFlushObj3);
   let playerScore4 = calculateScore(pairObject4, strFlushObj4);
 
+  console.log(playerScore1)
+
   let scores = [];
   scores.push(playerScore1);
   scores.push(playerScore2);
@@ -72,12 +74,16 @@ export function deal() {
     communal
   );
 
+  console.log(scores);
+
   let winner = calculateWinner(
     playerScore1,
     playerScore2,
     playerScore3,
     playerScore4
   );
+
+  console.log(winner);
 
 
   return { cards2, scores, winner };

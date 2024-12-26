@@ -45,6 +45,8 @@ export function calculateWinner(play1, play2, play3, play4) {
     })
     
   }
+  
+  console.log(scores);
 
 
   let playerScoreMap = new Map([
