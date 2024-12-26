@@ -24,44 +24,46 @@ export function calculateWinner(play1, play2, play3, play4) {
   ]);
 
   let scores = [];
-  let player1Score = scoreMap.get(player1);
-  let player2Score = scoreMap.get(player2);
-  let player3Score = scoreMap.get(player3);
-  let player4Score = scoreMap.get(player4);
+  let player1Score = {
+    player: 'player1',
+    scoreNum : scoreMap.get(player1),
+  }
+  let player2Score = {
+    player: 'player2',
+    scoreNum : scoreMap.get(player2),
+  }
+  let player3Score = {
+    player: 'player3',
+    scoreNum : scoreMap.get(player3),
+  }
+  let player4Score = {
+    player: 'player4',
+    scoreNum : scoreMap.get(player4),
+  }
+
+  let scoresNum = [player1Score.scoreNum, player2Score.scoreNum, player3Score.scoreNum, player4Score.scoreNum]
 
   scores.push(player1Score)
   scores.push(player2Score)
   scores.push(player3Score)
   scores.push(player4Score)
 
-  scores.sort((a, b) => b - a);
-
-  if(scores[0] === 1 && scores[1]===1){
-    let pairArr = []
-    scores.forEach((score)=>{
-      if(score === 1){
-        pairArr.push(score);
-      }
-    })
-    
-  }
-  
-  console.log(scores);
+  scoresNum.sort((a, b) => b - a);
 
 
   let playerScoreMap = new Map([
-    [player1Score, 'player1'],
-    [player2Score, 'player2'],
-    [player3Score, 'player3'],
-    [player4Score, 'player4'],
+    [player1Score.scoreNum, 'player1'],
+    [player2Score.scoreNum, 'player2'],
+    [player3Score.scoreNum, 'player3'],
+    [player4Score.scoreNum, 'player4'],
   ])
 
   let winner = {
-    winPlayer: playerScoreMap.get(scores[0]),
-    hand: initialMap.get(playerScoreMap.get(scores[0]))
+    winPlayer: playerScoreMap.get(scoresNum[0]),
+    hand: initialMap.get(playerScoreMap.get(scoresNum[0]))
   }
 
  // console.log(winner);
 
-  return winner;
+  return {winner, scores, scoresNum};
 }

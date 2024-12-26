@@ -48,7 +48,7 @@ function App() {
     setButtonDisplay(buttonArr[0]);
 
     if (countClick === 0) {
-      let { cards2, scores, winner } = deal();
+      let { cards2, winner } = deal();
       setCards(cards2);
       setPlayer1Cards(cards2.splice(0, 2));
       setPlayer2Cards(cards2.splice(0, 2));
