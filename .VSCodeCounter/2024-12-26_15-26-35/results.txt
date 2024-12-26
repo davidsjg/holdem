@@ -1,0 +1,62 @@
+Date : 2024-12-26 15:26:35
+Directory : /Users/josephdavidson/holdem
+Total : 26 files,  33935 codes, 89 comments, 216 blanks, all 34240 lines
+
+Languages
++----------------+------------+------------+------------+------------+------------+
+| language       | files      | code       | comment    | blank      | total      |
++----------------+------------+------------+------------+------------+------------+
+| JSON           |          3 |     32,703 |          0 |          3 |     32,706 |
+| JavaScript     |         15 |        961 |         47 |        144 |      1,152 |
+| CSS            |          5 |        203 |         14 |         33 |        250 |
+| Markdown       |          1 |         38 |          0 |         33 |         71 |
+| HTML           |          1 |         20 |         23 |          1 |         44 |
+| JavaScript JSX |          1 |         10 |          5 |          2 |         17 |
++----------------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                   |         26 |     33,935 |         89 |        216 |     34,240 |
+| . (Files)                                           |          4 |     32,726 |          5 |         37 |     32,768 |
+| public                                              |          2 |         45 |         23 |          2 |         70 |
+| src                                                 |         20 |      1,164 |         61 |        177 |      1,402 |
+| src (Files)                                         |         14 |      1,027 |         60 |        152 |      1,239 |
+| src/Card                                            |          2 |         69 |          0 |          9 |         78 |
+| src/Card2                                           |          2 |         31 |          1 |          9 |         41 |
+| src/Card3                                           |          2 |         37 |          0 |          7 |         44 |
++-----------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------+----------------+------------+------------+------------+------------+
+| filename                                            | language       | code       | comment    | blank      | total      |
++-----------------------------------------------------+----------------+------------+------------+------------+------------+
+| /Users/josephdavidson/holdem/README.md              | Markdown       |         38 |          0 |         33 |         71 |
+| /Users/josephdavidson/holdem/configuration.jsx      | JavaScript JSX |         10 |          5 |          2 |         17 |
+| /Users/josephdavidson/holdem/package-lock.json      | JSON           |     32,638 |          0 |          1 |     32,639 |
+| /Users/josephdavidson/holdem/package.json           | JSON           |         40 |          0 |          1 |         41 |
+| /Users/josephdavidson/holdem/public/index.html      | HTML           |         20 |         23 |          1 |         44 |
+| /Users/josephdavidson/holdem/public/manifest.json   | JSON           |         25 |          0 |          1 |         26 |
+| /Users/josephdavidson/holdem/src/App.css            | CSS            |        146 |         14 |         21 |        181 |
+| /Users/josephdavidson/holdem/src/App.js             | JavaScript     |        324 |          1 |         16 |        341 |
+| /Users/josephdavidson/holdem/src/Card/Card.css      | CSS            |         25 |          0 |          5 |         30 |
+| /Users/josephdavidson/holdem/src/Card/Card.js       | JavaScript     |         44 |          0 |          4 |         48 |
+| /Users/josephdavidson/holdem/src/Card2/Card2.css    | CSS            |          6 |          0 |          1 |          7 |
+| /Users/josephdavidson/holdem/src/Card2/Card2.js     | JavaScript     |         25 |          1 |          8 |         34 |
+| /Users/josephdavidson/holdem/src/Card3/Card3.css    | CSS            |         26 |          0 |          5 |         31 |
+| /Users/josephdavidson/holdem/src/Card3/Card3.js     | JavaScript     |         11 |          0 |          2 |         13 |
+| /Users/josephdavidson/holdem/src/calcCardImage.js   | JavaScript     |         10 |          0 |          5 |         15 |
+| /Users/josephdavidson/holdem/src/calcTie.js         | JavaScript     |         37 |          5 |         18 |         60 |
+| /Users/josephdavidson/holdem/src/calculateScore.js  | JavaScript     |         25 |          0 |          6 |         31 |
+| /Users/josephdavidson/holdem/src/calculateWinner.js | JavaScript     |         57 |          1 |         12 |         70 |
+| /Users/josephdavidson/holdem/src/checkHand.js       | JavaScript     |        182 |         13 |         19 |        214 |
+| /Users/josephdavidson/holdem/src/convertCards.js    | JavaScript     |         25 |          0 |          5 |         30 |
+| /Users/josephdavidson/holdem/src/deal.js            | JavaScript     |        123 |         22 |         25 |        170 |
+| /Users/josephdavidson/holdem/src/getCards.js        | JavaScript     |         34 |          0 |         11 |         45 |
+| /Users/josephdavidson/holdem/src/index.css          | CSS            |          0 |          0 |          1 |          1 |
+| /Users/josephdavidson/holdem/src/index.js           | JavaScript     |          8 |          0 |          5 |         13 |
+| /Users/josephdavidson/holdem/src/masterArr.js       | JavaScript     |         55 |          0 |          7 |         62 |
+| /Users/josephdavidson/holdem/src/setupTests.js      | JavaScript     |          1 |          4 |          1 |          6 |
+| Total                                               |                |     33,935 |         89 |        216 |     34,240 |
++-----------------------------------------------------+----------------+------------+------------+------------+------------+

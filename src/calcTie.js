@@ -26,6 +26,8 @@ export function pairTie(tieArray) {
 
   let highObj = {};
   let highObjNum = 0;
+  let highCardNum = 0;
+  let highCardObj = 0;
 
   console.log(compareArr);
 
@@ -33,6 +35,11 @@ export function pairTie(tieArray) {
     if (compObj.pairNumber > highObjNum) {
       highObj = { ...compObj };
       highObjNum = compObj.pairNumber;
+    } else if (compObj.pairNumber === highObjNum){
+      if (compObj.highCard > highCardNum) {
+        highObj = { ...compObj };
+        highCardObj = compObj.highCard
+      }
     }
   });
 

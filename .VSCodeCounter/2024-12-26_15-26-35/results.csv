@@ -1,0 +1,28 @@
+"filename", "language", "JavaScript", "JSON", "JavaScript JSX", "Markdown", "CSS", "HTML", "comment", "blank", "total"
+"/Users/josephdavidson/holdem/README.md", "Markdown", 0, 0, 0, 38, 0, 0, 0, 33, 71
+"/Users/josephdavidson/holdem/configuration.jsx", "JavaScript JSX", 0, 0, 10, 0, 0, 0, 5, 2, 17
+"/Users/josephdavidson/holdem/package-lock.json", "JSON", 0, 32638, 0, 0, 0, 0, 0, 1, 32639
+"/Users/josephdavidson/holdem/package.json", "JSON", 0, 40, 0, 0, 0, 0, 0, 1, 41
+"/Users/josephdavidson/holdem/public/index.html", "HTML", 0, 0, 0, 0, 0, 20, 23, 1, 44
+"/Users/josephdavidson/holdem/public/manifest.json", "JSON", 0, 25, 0, 0, 0, 0, 0, 1, 26
+"/Users/josephdavidson/holdem/src/App.css", "CSS", 0, 0, 0, 0, 146, 0, 14, 21, 181
+"/Users/josephdavidson/holdem/src/App.js", "JavaScript", 324, 0, 0, 0, 0, 0, 1, 16, 341
+"/Users/josephdavidson/holdem/src/Card/Card.css", "CSS", 0, 0, 0, 0, 25, 0, 0, 5, 30
+"/Users/josephdavidson/holdem/src/Card/Card.js", "JavaScript", 44, 0, 0, 0, 0, 0, 0, 4, 48
+"/Users/josephdavidson/holdem/src/Card2/Card2.css", "CSS", 0, 0, 0, 0, 6, 0, 0, 1, 7
+"/Users/josephdavidson/holdem/src/Card2/Card2.js", "JavaScript", 25, 0, 0, 0, 0, 0, 1, 8, 34
+"/Users/josephdavidson/holdem/src/Card3/Card3.css", "CSS", 0, 0, 0, 0, 26, 0, 0, 5, 31
+"/Users/josephdavidson/holdem/src/Card3/Card3.js", "JavaScript", 11, 0, 0, 0, 0, 0, 0, 2, 13
+"/Users/josephdavidson/holdem/src/calcCardImage.js", "JavaScript", 10, 0, 0, 0, 0, 0, 0, 5, 15
+"/Users/josephdavidson/holdem/src/calcTie.js", "JavaScript", 37, 0, 0, 0, 0, 0, 5, 18, 60
+"/Users/josephdavidson/holdem/src/calculateScore.js", "JavaScript", 25, 0, 0, 0, 0, 0, 0, 6, 31
+"/Users/josephdavidson/holdem/src/calculateWinner.js", "JavaScript", 57, 0, 0, 0, 0, 0, 1, 12, 70
+"/Users/josephdavidson/holdem/src/checkHand.js", "JavaScript", 182, 0, 0, 0, 0, 0, 13, 19, 214
+"/Users/josephdavidson/holdem/src/convertCards.js", "JavaScript", 25, 0, 0, 0, 0, 0, 0, 5, 30
+"/Users/josephdavidson/holdem/src/deal.js", "JavaScript", 123, 0, 0, 0, 0, 0, 22, 25, 170
+"/Users/josephdavidson/holdem/src/getCards.js", "JavaScript", 34, 0, 0, 0, 0, 0, 0, 11, 45
+"/Users/josephdavidson/holdem/src/index.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 1, 1
+"/Users/josephdavidson/holdem/src/index.js", "JavaScript", 8, 0, 0, 0, 0, 0, 0, 5, 13
+"/Users/josephdavidson/holdem/src/masterArr.js", "JavaScript", 55, 0, 0, 0, 0, 0, 0, 7, 62
+"/Users/josephdavidson/holdem/src/setupTests.js", "JavaScript", 1, 0, 0, 0, 0, 0, 4, 1, 6
+"Total", "-", 961, 32703, 10, 38, 203, 20, 89, 216, 34240
