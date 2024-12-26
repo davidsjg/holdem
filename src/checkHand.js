@@ -102,8 +102,6 @@ export function checkPair(dealtCards) {
     }
     pairObject.twoPair = true;
   } else if ((pair === 2 && pair2 === 3) || (pair === 3 && pair2 === 2)) {
-    console.log(pair)
-    console.log(pair2);
     pairObject.fullHouse = true;
     if (pair[0] > pair2[0]) {
       pairObject.fullHouseHighPair = pair[0].number;

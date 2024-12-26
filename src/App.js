@@ -111,7 +111,7 @@ function App() {
                       <PlayerCards value={player3Cards[0]} />
                       <PlayerCards value={player3Cards[1]} />
                       <div className={winnerContain}>
-                        {winner.winPlayer === "player3" && (
+                        {winner.player === "player3" && (
                           <>Winner! - {winner.hand}</>
                         )}
                       </div>
@@ -137,7 +137,7 @@ function App() {
                     <PlayerCards value={player2Cards[0]} />
                     <PlayerCards value={player2Cards[1]} />
                     <div className={winnerContain}>
-                      {winner.winPlayer === "player2" && (
+                      {winner.player === "player2" && (
                         <>Winner! - {winner.hand}</>
                       )}
                     </div>
@@ -188,7 +188,7 @@ function App() {
                     <PlayerCards value={player4Cards[0]} />
                     <PlayerCards value={player4Cards[1]} />
                     <div className={winnerContain}>
-                      {winner.winPlayer === "player4" && (
+                      {winner.player === "player4" && (
                         <>Winner! - {winner.hand}</>
                       )}
                     </div>
@@ -201,7 +201,7 @@ function App() {
                 <PlayerCards value={player1Cards[0]} />
                 <PlayerCards value={player1Cards[1]} />
                 <div className={winnerContain}>
-                  {winner.winPlayer === "player1" && <>Winner! - {winner.hand}</>}
+                  {winner.player === "player1" && <>Winner! - {winner.hand}</>}
                 </div>
               </div>
             </div>
@@ -231,7 +231,7 @@ function App() {
                     <Card3 />
                     <Card3 />
                       <div className={winnerContain}>
-                        {winner.winPlayer === "player3" && (
+                        {winner.player === "player3" && (
                           <>Winner! - {winner.hand}</>
                         )}
                       </div>
@@ -257,7 +257,7 @@ function App() {
                   <Card3 />
                   <Card3 />
                     <div className={winnerContain}>
-                      {winner.winPlayer === "player2" && (
+                      {winner.player === "player2" && (
                         <>Winner! - {winner.hand}</>
                       )}
                     </div>
@@ -308,7 +308,7 @@ function App() {
                   <Card3 />
                   <Card3 />
                     <div className={winnerContain}>
-                      {winner.winPlayer === "player4" && (
+                      {winner.player === "player4" && (
                         <>Winner! - {winner.hand}</>
                       )}
                     </div>
@@ -321,7 +321,7 @@ function App() {
               <Card3 />
               <Card3 />
                 <div className={winnerContain}>
-                  {winner.winPlayer === "player1" && <>Winner! - {winner.hand}</>}
+                  {winner.player === "player1" && <>Winner! - {winner.hand}</>}
                 </div>
               </div>
             </div>

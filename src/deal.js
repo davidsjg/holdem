@@ -2,7 +2,7 @@ import { getCards } from "./getCards.js";
 import { checkPair, checkStraightFlush } from "./checkHand.js";
 import { calculateScore } from "./calculateScore.js";
 import { calculateWinner } from "./calculateWinner.js";
-import { pairTie } from "./calcTie.js";
+import { flushTie, fourOfAKindTie, fullHouseTie, pairTie, straightTie, threeOfAKindTie, twoPairTie } from "./calcTie.js";
 export function deal() {
   let cardObject = {
     sevenCards: [],
@@ -48,11 +48,6 @@ export function deal() {
   let strFlushObj3 = checkStraightFlush(player3Hand);
   let strFlushObj4 = checkStraightFlush(player4Hand);
 
-  console.log(pairObject1, strFlushObj1);
-  console.log(pairObject2, strFlushObj2);
-  console.log(pairObject3, strFlushObj3);
-  console.log(pairObject4, strFlushObj4);
-
   //returns the HAND based on 2 objects, not the number
   let playerScore1 = calculateScore(pairObject1, strFlushObj1);
   let playerScore2 = calculateScore(pairObject2, strFlushObj2);
@@ -93,22 +88,28 @@ export function deal() {
     playerScore4
   );
 
+  let tieArraySendIt = [];
+
   scores.forEach((score) => {
     if (score.player === "player1") {
       scoreObjP1 = { ...pairObject1, ...strFlushObj1, ...score };
+      tieArraySendIt.push(scoreObjP1);
     }
     if (score.player === "player2") {
       scoreObjP2 = { ...pairObject2, ...strFlushObj2, ...score };
+      tieArraySendIt.push(scoreObjP2);
     }
     if (score.player === "player3") {
       scoreObjP3 = { ...pairObject3, ...strFlushObj3, ...score };
+      tieArraySendIt.push(scoreObjP3);
     }
     if (score.player === "player4") {
       scoreObjP4 = { ...pairObject4, ...strFlushObj4, ...score };
+      tieArraySendIt.push(scoreObjP4);
     }
   });
 
-  console.log(scoreObjP1)
+  //console.log(tieArraySendIt)
 
   //now you have the pair and flush objects
   //and you have object w. player & numeric score
@@ -118,38 +119,49 @@ export function deal() {
 
   //console.log(scoreObjP1);
 
+  console.log(scoresNum)
+
+  let winner = {};
+
   for (let k = 0; k < scoresNum.length; k++) {
     //check for tie between first and second element
-    if (scoresNum[k] === scoresNum[k + 1] && scoresNum[k] === 0) {
+    if (scoresNum[k] === scoresNum[k + 1] && k===0){
       switch (scoresNum[k]) {
         case 1:
-          pairTie();
+          winner = pairTie(tieArraySendIt);
           break;
         case 2:
+          twoPairTie(tieArraySendIt);
           break;
         case 3:
+          threeOfAKindTie(tieArraySendIt);
           break;
         case 4:
+          straightTie(tieArraySendIt);
           break;
         case 5:
+          flushTie(tieArraySendIt);
           break;
         case 6:
+          fullHouseTie(tieArraySendIt);
           break;
         case 7:
+          fourOfAKindTie(tieArraySendIt);
           break;
-
         default:
           break;
       }
     }
   }
 
+  /*
   let { winner } = calculateWinner(
     playerScore1,
     playerScore2,
     playerScore3,
     playerScore4
   );
+  */
 
   return { cards2, winner };
 }

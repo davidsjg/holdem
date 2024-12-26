@@ -6,11 +6,6 @@ export function convertCards(cardNumber, suit) {
    }
 
    if(cardNumber === 2 && suit === 'heart'){
-      cardObj = {
-         'cardNumber': 2,
-         moji: '🂲'
-
-      }
    }
 
 
