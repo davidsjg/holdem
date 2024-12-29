@@ -2,7 +2,7 @@ import { getCards } from "./getCards.js";
 import { checkPair, checkStraightFlush } from "./checkHand.js";
 import { calculateScore } from "./calculateScore.js";
 import { calculateWinner } from "./calculateWinner.js";
-import { flushTie, fourOfAKindTie, fullHouseTie, pairTie, straightTie, threeOfAKindTie, twoPairTie } from "./calcTie.js";
+import { flushTie, fourOfAKindTie, fullHouseTie, noTie, pairTie, straightTie, threeOfAKindTie, twoPairTie } from "./calcTie.js";
 export function deal() {
   let cardObject = {
     sevenCards: [],
@@ -88,6 +88,14 @@ export function deal() {
     playerScore4
   );
 
+  let { winner1 } = calculateWinner(
+    playerScore1,
+    playerScore2,
+    playerScore3,
+    playerScore4
+  );
+  
+
   let tieArraySendIt = [];
 
   scores.forEach((score) => {
@@ -151,6 +159,9 @@ export function deal() {
         default:
           break;
       }
+    } else {
+      winner = noTie(tieArraySendIt, winner1)
+      break
     }
   }
 
@@ -162,6 +173,8 @@ export function deal() {
     playerScore4
   );
   */
+
+  console.log(winner);
 
   return { cards2, winner };
 }

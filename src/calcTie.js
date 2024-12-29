@@ -2,6 +2,26 @@
 
 import { convertCards } from "./convertCards";
 
+export function noTie(tieArray, winner) {
+  console.log(tieArray);
+  let highObj = {}
+
+  tieArray.forEach((obj) => {
+    console.log(winner.winPlayer)
+    console.log(obj.player)
+    console.log(obj.hand)
+    if(winner.winPlayer === obj.player){
+      highObj = {...obj, 
+        hand: winner.hand
+      }
+    }
+  });
+
+  return highObj;
+
+
+}
+
 export function pairTie(tieArray) {
   let player1Obj = tieArray[0];
   let player2Obj = tieArray[1];
@@ -14,20 +34,19 @@ export function pairTie(tieArray) {
 
   //set high card, making sure high card isn't included in pair
 
-
   tieArray.forEach((obj) => {
     if (obj.pair === true) {
-        let cardNumber = convertSend(obj.pair1Number)
-        if(obj.highCard === obj.pair1Number){
-          obj.highCard = obj.descendArr[2];
-        }
+      let cardNumber = convertSend(obj.pair1Number);
+      if (obj.highCard === obj.pair1Number) {
+        obj.highCard = obj.descendArr[2];
+      }
       compareArr.push({
         pairNumber: obj.pair1Number,
         highCard: obj.highCard,
         player: obj.player,
-        hand: "pair of " + cardNumber + 's',
+        hand: "pair of " + cardNumber + "s",
         descendArr: obj.descendArr,
-        highCardWin: 0
+        highCardWin: 0,
       });
     }
   });
@@ -58,33 +77,29 @@ export function pairTie(tieArray) {
       highCardNum = compObj.highCardNum;
       pairArr.push(highObj);
       currDescArr = compObj.descendArr;
-    } else if (compObj.pairNumber === highPairNum){
+    } else if (compObj.pairNumber === highPairNum) {
       if (compObj.highCard > highCardNum) {
-        if(highObj.highCard < compObj.highCard){
+        if (highObj.highCard < compObj.highCard) {
           highObj = { ...compObj };
-          highCardObj = compObj.highCard
+          highCardObj = compObj.highCard;
           currDescArr = compObj.descendArr;
           compObj.highCardWin = compObj.highCard;
         }
-      } else if (compObj.highCard === highCardNum){
-        for(let k=0; k<currDescArr.length; k++){
-          if(compObj.descendArr[k] > currDescArr[k]){
+      } else if (compObj.highCard === highCardNum) {
+        for (let k = 0; k < currDescArr.length; k++) {
+          if (compObj.descendArr[k] > currDescArr[k]) {
             highObj = { ...compObj };
-            highCardObj = compObj.highCard
+            highCardObj = compObj.highCard;
             currDescArr = compObj.descendArr;
             compObj.highCardWin = currDescArr[k];
-          } 
+          }
         }
       }
     }
   });
 
-
-
-
-
-  let highCardWinText = convertSend(highObj.highCardWin)
-  let highCardText = convertSend(highObj.highCard)
+  let highCardWinText = convertSend(highObj.highCardWin);
+  let highCardText = convertSend(highObj.highCard);
 
   highObj.highCardWin = highCardWinText;
   highObj.highCard = highCardText;
@@ -97,59 +112,55 @@ export function pairTie(tieArray) {
   //however, if the pairs are the same, we need to look at high card
 }
 
-function convertSend(highObj1){
-
-  let {cardNumber} = convertCards(highObj1)
+function convertSend(highObj1) {
+  let { cardNumber } = convertCards(highObj1);
 
   return cardNumber;
-
 }
 
 export function twoPairTie(tieArray) {
-
   console.log(tieArray);
 
   let compareArr = [];
 
   tieArray.forEach((obj) => {
     if (obj.twoPair === true) {
-        let cardNumber = convertSend(obj.pair1Number)
-        console.log(obj.highCard)
-        console.log(obj.pair1Number)
-        console.log(obj.descendArr)
-        if(obj.highCard === obj.pair1Number){
-          obj.highCard = obj.descendArr[4];
-        }
+      let cardNumber1 = convertSend(obj.pair1Number);
+      let cardNumber2 = convertSend(obj.pair2Number);
+      console.log(obj.highCard);
+      console.log(obj.pair1Number);
+      console.log(obj.descendArr);
+      if (obj.highCard === obj.pair1Number) {
+        obj.highCard = obj.descendArr[4];
+      }
       compareArr.push({
         pair1Number: obj.pair1Number,
         pair2Number: obj.pair2Number,
         highCard: obj.highCard,
         player: obj.player,
-        hand: "pair of " + cardNumber + 's',
+        hand: "two pair - " + cardNumber1 + "s and " + cardNumber2 + "s",
         descendArr: obj.descendArr,
-        highCardWin: 0
+        highCardWin: 0,
       });
     }
   });
 
   let highPairNum = 0;
-  let highObj = {}
+  let highObj = {};
 
-
-  compareArr.forEach((compObj)=>{
-    if(compObj.pair1Number > highPairNum){
+  compareArr.forEach((compObj) => {
+    if (compObj.pair1Number > highPairNum) {
       highObj = { ...compObj };
       highPairNum = compObj.pair1Number;
-    } else if (compObj.pair1Number === highPairNum){
-      if(compObj.pair2Number > highPairNum){
+    } else if (compObj.pair1Number === highPairNum) {
+      if (compObj.pair2Number > highPairNum) {
         highObj = { ...compObj };
         highPairNum = compObj.pair2Number;
       }
     }
-  })
+  });
   console.log(highObj);
   return highObj;
-
 }
 
 export function threeOfAKindTie() {}

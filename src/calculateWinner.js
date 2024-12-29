@@ -58,12 +58,12 @@ export function calculateWinner(play1, play2, play3, play4) {
     [player4Score.scoreNum, 'player4'],
   ])
 
-  let winner = {
+  let winner1 = {
     winPlayer: playerScoreMap.get(scoresNum[0]),
     hand: initialMap.get(playerScoreMap.get(scoresNum[0]))
   }
 
  // console.log(winner);
 
-  return {winner, scores, scoresNum};
+  return {winner1, scores, scoresNum};
 }

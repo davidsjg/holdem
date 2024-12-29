@@ -12,7 +12,7 @@ export function getCards() {
   let cards = [];
 
   let testCards = [
-    { suit: "heart", number: 13 },
+    { suit: "heart", number: 7 },
     { suit: "club", number: 3 },
 
     { suit: "heart", number: 11 },

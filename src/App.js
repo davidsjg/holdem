@@ -90,7 +90,6 @@ function App() {
 
   return (
     <>
-      {" "}
       <div className="mainContain">
         {cards.length > 0 ? (
           <>
@@ -114,7 +113,7 @@ function App() {
                         {winner.player === "player3" && (
                           <>
                             <>
-                              Winner! - {winner.hand}- {winner.highCard} High
+                              Winner! - {winner.hand}
                               {winner.highCardWin > 0 ? (
                                 <>{winner.highCardWin} - Kicker</>
                               ) : (
@@ -146,10 +145,10 @@ function App() {
                     <PlayerCards value={player2Cards[0]} />
                     <PlayerCards value={player2Cards[1]} />
                     <div className={winnerContain}>
-                      {winner.player === "player2" && (
+                    {winner.player === "player2" && (
                         <>
                           <>
-                            Winner! - {winner.hand}- {winner.highCard} High
+                            Winner! - {winner.hand}
                             {winner.highCardWin > 0 ? (
                               <>{winner.highCardWin} - Kicker</>
                             ) : (
@@ -209,7 +208,7 @@ function App() {
                       {winner.player === "player4" && (
                         <>
                           <>
-                            Winner! - {winner.hand}- {winner.highCard} High
+                            Winner! - {winner.hand}
                             {winner.highCardWin > 0 ? (
                               <>{winner.highCardWin} - Kicker</>
                             ) : (
@@ -231,7 +230,7 @@ function App() {
                 {winner.player === "player1" && (
                         <>
                           <>
-                            Winner! - {winner.hand}- {winner.highCard} High
+                            Winner! - {winner.hand}
                             {winner.highCardWin > 0 ? (
                               <>{winner.highCardWin} - Kicker</>
                             ) : (
