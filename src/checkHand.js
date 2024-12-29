@@ -13,6 +13,7 @@ export function checkPair(dealtCards) {
     fullHouseHighPair: 0,
     fullHousePair2: 0,
     fourOfAKindNumber: 0,
+    descendArr: [],
   };
   let pair = 0;
   let pair2 = 0;
@@ -23,7 +24,11 @@ export function checkPair(dealtCards) {
   let matchedCards2 = [];
   let matchedCards3 = [];
   let compareCards = dealtCards.slice();
+  let descendCardArr = [];
+
   dealtCards.forEach((card1) => {
+    descendCardArr.push(card1.number);
+
     for (let k = 0; k < compareCards.length; k++) {
       let card2 = compareCards[k];
 
@@ -69,6 +74,9 @@ export function checkPair(dealtCards) {
   });
 
   bestPair = bestPairPre.slice(0, 4);
+  descendCardArr.sort((a, b) => b - a);
+
+  pairObject.descendArr = descendCardArr;
 
   if (pair === 2 || pair2 === 2) {
     pairObject.pair = true;
@@ -99,6 +107,9 @@ export function checkPair(dealtCards) {
     if (matchedCards1[0].number > matchedCards2[0].number) {
       pairObject.pair1Number = matchedCards1[0].number;
       pairObject.pair2Number = matchedCards2[0].number;
+    } else {
+      pairObject.pair1Number = matchedCards2[0].number;
+      pairObject.pair2Number = matchedCards1[0].number;
     }
     pairObject.twoPair = true;
   } else if ((pair === 2 && pair2 === 3) || (pair === 3 && pair2 === 2)) {
@@ -107,7 +118,7 @@ export function checkPair(dealtCards) {
       pairObject.fullHouseHighPair = pair[0].number;
       pairObject.fullHousePair2 = pair2[0].number;
     }
-  }
+  } 
 
   return pairObject;
 }

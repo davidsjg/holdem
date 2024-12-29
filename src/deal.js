@@ -131,7 +131,7 @@ export function deal() {
           winner = pairTie(tieArraySendIt);
           break;
         case 2:
-          twoPairTie(tieArraySendIt);
+          winner = twoPairTie(tieArraySendIt);
           break;
         case 3:
           threeOfAKindTie(tieArraySendIt);
