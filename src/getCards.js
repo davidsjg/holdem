@@ -52,5 +52,5 @@ export function getCards() {
 
 
 
-  return testCards;
+  return cards;
 }

@@ -244,7 +244,7 @@ function App() {
               </div>
             </div>
             <div className="buttonContain">
-              <button className="button1" onClick={playCards}>
+              <button className="button2" onClick={playCards}>
                 {buttonDisplay}
               </button>
             </div>
@@ -350,7 +350,7 @@ function App() {
               </div>
             </div>
             <div className="buttonContain">
-              <button className="button1" onClick={playCards}>
+              <button className="button2" onClick={playCards}>
                 {buttonDisplay}
               </button>
             </div>
