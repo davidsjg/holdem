@@ -160,8 +160,10 @@ export function deal() {
           break;
       }
     } else {
-      winner = noTie(tieArraySendIt, winner1)
-      break
+      if(k === scoresNum.length-1 && Object.keys(winner).length === 0){
+        console.log('inside 2else')
+        winner = noTie(tieArraySendIt, winner1)
+      }
     }
   }
 

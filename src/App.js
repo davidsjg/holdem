@@ -130,38 +130,39 @@ function App() {
             )}
 
             <div className="centerContain">
-              {computerHandClass === "computerHandClass1" ? (
-                <>
-                  <div>
+              <div className="player2">
+                {computerHandClass === "computerHandClass1" ? (
+                  <>
                     <div>
-                      <Card3 />
-                      <Card3 />
+                      <div>
+                        <Card3 />
+                        <Card3 />
+                      </div>
                     </div>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <div className={computerHandClass}>
-                    <PlayerCards value={player2Cards[0]} />
-                    <PlayerCards value={player2Cards[1]} />
-                    <div className={winnerContain}>
-                    {winner.player === "player2" && (
-                        <>
+                  </>
+                ) : (
+                  <>
+                    <div className={computerHandClass}>
+                      <PlayerCards value={player2Cards[0]} />
+                      <PlayerCards value={player2Cards[1]} />
+                      <div className={winnerContain}>
+                        {winner.player === "player2" && (
                           <>
-                            Winner! - {winner.hand}
-                            {winner.highCardWin > 0 ? (
-                              <>{winner.highCardWin} - Kicker</>
-                            ) : (
-                              <></>
-                            )}
+                            <>
+                              Winner! - {winner.hand}
+                              {winner.highCardWin > 0 ? (
+                                <>{winner.highCardWin} - Kicker</>
+                              ) : (
+                                <></>
+                              )}
+                            </>
                           </>
-                        </>
-                      )}
+                        )}
+                      </div>
                     </div>
-                  </div>
-                </>
-              )}
-
+                  </>
+                )}
+              </div>
               <div className="communal">
                 <div className="flopBoarder">
                   <div className={flop}>
@@ -227,18 +228,18 @@ function App() {
                 <PlayerCards value={player1Cards[0]} />
                 <PlayerCards value={player1Cards[1]} />
                 <div className={winnerContain}>
-                {winner.player === "player1" && (
-                        <>
-                          <>
-                            Winner! - {winner.hand}
-                            {winner.highCardWin > 0 ? (
-                              <>{winner.highCardWin} - Kicker</>
-                            ) : (
-                              <></>
-                            )}
-                          </>
-                        </>
-                      )}
+                  {winner.player === "player1" && (
+                    <>
+                      <>
+                        Winner! - {winner.hand}
+                        {winner.highCardWin > 0 ? (
+                          <>{winner.highCardWin} - Kicker</>
+                        ) : (
+                          <></>
+                        )}
+                      </>
+                    </>
+                  )}
                 </div>
               </div>
             </div>
@@ -267,9 +268,7 @@ function App() {
                     <div className="computerHand3">
                       <Card3 />
                       <Card3 />
-                      <div className={winnerContain}>
-
-                      </div>
+                      <div className={winnerContain}></div>
                     </div>
                   </div>
                 </div>
@@ -291,9 +290,7 @@ function App() {
                   <div className={computerHandClass}>
                     <Card3 />
                     <Card3 />
-                    <div className={winnerContain}>
-
-                    </div>
+                    <div className={winnerContain}></div>
                   </div>
                 </>
               )}
@@ -340,9 +337,7 @@ function App() {
                   <div className={computerHandClass}>
                     <Card3 />
                     <Card3 />
-                    <div className={winnerContain}>
-
-                    </div>
+                    <div className={winnerContain}></div>
                   </div>
                 </>
               )}
@@ -351,9 +346,7 @@ function App() {
               <div className="playerCards">
                 <Card3 />
                 <Card3 />
-                <div className={winnerContain}>
-
-                </div>
+                <div className={winnerContain}></div>
               </div>
             </div>
             <div className="buttonContain">

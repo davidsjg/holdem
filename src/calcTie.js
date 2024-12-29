@@ -17,6 +17,7 @@ export function noTie(tieArray, winner) {
     }
   });
 
+  console.log(highObj)
   return highObj;
 
 

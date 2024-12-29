@@ -11,7 +11,7 @@
   background: url("./holdemBackground.avif") ;
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: 1000px 800px;
+  background-size: 1200px 900px;
 }
 
 .dealerCards{
@@ -90,6 +90,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  margin-left: 70px;
+  margin-right: 70px;
 }
 
 .centerContain{
@@ -112,11 +114,10 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-top: 90px;
+  margin-top: 80px;
   height: 100px;
   width: 100px;
-
-
+  margin-bottom: 80px;
 }
 
 .computerHand1{
@@ -130,16 +131,18 @@
   margin: auto;  
   display: flex;
   flex-direction: row;
+  margin-top: 190px;
 }
 
 .computerHand3Parent{
   display: flex;
-  height: 100px; 
-  padding-top: 150px;
+  height: 300px; 
+  margin-top: -100px;
 }
 
 .computerHandClass1{
   content-visibility: hidden;
+  margin-right:100px;
 }
 .computerHandClass2{
   content-visibility: visible;
@@ -178,4 +181,8 @@ white 0px 16px 10px -10px;
 .winner2{
   content-visibility: visible;
   color: white
+}
+
+.player2{
+
 }
