@@ -145,21 +145,16 @@ export function twoPairTie(tieArray) {
   let highObj = {};
 
   compareArr.forEach((compObj) => {
-    console.log(compObj);
     if (compObj.pair1Number > highPairNum) {
       highObj = { ...compObj };
       highPairNum = compObj.pair1Number;
       highPairNum2 = compObj.pair2Number;
     } else if (compObj.pair1Number === highPairNum) {
-      console.log('inside else pairnum')
-      console.log(compObj.pair2Number)
-      console.log(highPairNum2)
       if (compObj.pair2Number > highPairNum2) {
         highObj = { ...compObj };
         highPairNum2 = compObj.pair2Number;
       }
     }
-    console.log(highPairNum)
   });
 
   return highObj;
