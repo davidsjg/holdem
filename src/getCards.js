@@ -12,23 +12,23 @@ export function getCards() {
   let cards = [];
 
   let testCards = [
-    { suit: "club", number: 10 },
-    { suit: "heart", number: 5 },
+    { suit: "diamond", number: 14 },
+    { suit: "diamond", number: 4 },
 
-    { suit: "diamond", number: 7 },
+    { suit: "spade", number: 6 },
     { suit: "club", number: 9 },
 
-    { suit: "diamond", number: 12 },
-    { suit: "spade", number: 2  },
-
-    { suit: "diamond", number: 11 },
-    { suit: "club", number: 6 },
-
-    { suit: "spade", number: 10 },
-    { suit: "club", number: 5 },
-    { suit: "diamond", number: 2 },
     { suit: "heart", number: 11 },
-    { suit: "club", number: 12 },
+    { suit: "club", number: 8  },
+
+    { suit: "spade", number: 4 },
+    { suit: "spade", number: 5 },
+
+    { suit: "diamond", number: 13 },
+    { suit: "spade", number: 8 },
+    { suit: "heart", number: 4 },
+    { suit: "diamond", number: 10 },
+    { suit: "spade", number: 10 },
   ];
 
   for (let i = 0; i < 13; i++) {
@@ -52,5 +52,5 @@ export function getCards() {
 
 
 
-  return cards;
+  return testCards;
 }

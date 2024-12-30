@@ -127,7 +127,16 @@ export function deal() {
 
   //console.log(scoreObjP1);
 
-  console.log(scoresNum)
+
+  let scoreArr2 = []
+  scores.forEach((score1)=>{
+
+    scoreArr2.push(score1.scoreNum)
+  })
+
+ // console.log(scoresNum)
+  console.log(scoreArr2)
+
 
   let winner = {};
 
@@ -161,7 +170,7 @@ export function deal() {
       }
     } else {
       if(k === scoresNum.length-1 && Object.keys(winner).length === 0){
-        console.log('inside 2else')
+
         winner = noTie(tieArraySendIt, winner1)
       }
     }
@@ -176,7 +185,7 @@ export function deal() {
   );
   */
 
-  console.log(winner);
+
 
   return { cards2, winner };
 }

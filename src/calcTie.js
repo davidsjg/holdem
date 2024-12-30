@@ -3,13 +3,11 @@
 import { convertCards } from "./convertCards";
 
 export function noTie(tieArray, winner) {
-  console.log(tieArray);
+
   let highObj = {}
 
   tieArray.forEach((obj) => {
-    console.log(winner.winPlayer)
-    console.log(obj.player)
-    console.log(obj.hand)
+
     if(winner.winPlayer === obj.player){
       highObj = {...obj, 
         hand: winner.hand
@@ -17,7 +15,7 @@ export function noTie(tieArray, winner) {
     }
   });
 
-  console.log(highObj)
+
   return highObj;
 
 
@@ -67,7 +65,6 @@ export function pairTie(tieArray) {
     }
   }
 */
-  console.log(compareArr);
 
   const pairArr = [];
 
@@ -105,7 +102,7 @@ export function pairTie(tieArray) {
   highObj.highCardWin = highCardWinText;
   highObj.highCard = highCardText;
 
-  console.log(highObj);
+
 
   return highObj;
 
@@ -120,7 +117,6 @@ function convertSend(highObj1) {
 }
 
 export function twoPairTie(tieArray) {
-  console.log(tieArray);
 
   let compareArr = [];
 
@@ -128,9 +124,7 @@ export function twoPairTie(tieArray) {
     if (obj.twoPair === true) {
       let cardNumber1 = convertSend(obj.pair1Number);
       let cardNumber2 = convertSend(obj.pair2Number);
-      console.log(obj.highCard);
-      console.log(obj.pair1Number);
-      console.log(obj.descendArr);
+
       if (obj.highCard === obj.pair1Number) {
         obj.highCard = obj.descendArr[4];
       }
@@ -147,20 +141,27 @@ export function twoPairTie(tieArray) {
   });
 
   let highPairNum = 0;
+  let highPairNum2 = 0;
   let highObj = {};
 
   compareArr.forEach((compObj) => {
+    console.log(compObj);
     if (compObj.pair1Number > highPairNum) {
       highObj = { ...compObj };
       highPairNum = compObj.pair1Number;
+      highPairNum2 = compObj.pair2Number;
     } else if (compObj.pair1Number === highPairNum) {
-      if (compObj.pair2Number > highPairNum) {
+      console.log('inside else pairnum')
+      console.log(compObj.pair2Number)
+      console.log(highPairNum2)
+      if (compObj.pair2Number > highPairNum2) {
         highObj = { ...compObj };
-        highPairNum = compObj.pair2Number;
+        highPairNum2 = compObj.pair2Number;
       }
     }
+    console.log(highPairNum)
   });
-  console.log(highObj);
+
   return highObj;
 }
 
